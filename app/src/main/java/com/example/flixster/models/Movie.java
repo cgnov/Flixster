@@ -1,6 +1,7 @@
 package com.example.flixster.models;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
@@ -36,27 +37,7 @@ public class Movie {
     }
 
     public String getPosterPath() {
-        String.format("https://image.tmdb.org/t/p/$s/$s", "w342", posterPath);
-        /*AsyncHttpClient client = new AsyncHttpClient();
-        client.get(IMAGE_CONFIG_URL, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Headers headers, JSON json) {
-                JSONObject jsonObject = json.jsonObject;
-                try {
-                    JSONObject images = jsonObject.getJSONObject("images");
-                    // TODO: cont. with getting valid image size
-                } catch (JSONException e) {
-                    // TODO: log exception here
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-                // TODO: log failure here
-            }
-        });
-         */
-        return posterPath;
+        return String.format("https://image.tmdb.org/t/p/%s/%s", "w342", posterPath); // This currently hard-codes image size
     }
 
     public String getTitle() {
