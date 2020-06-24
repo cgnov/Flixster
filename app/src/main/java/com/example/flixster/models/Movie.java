@@ -18,11 +18,13 @@ import okhttp3.Headers;
 public class Movie {
     public static final String IMAGE_CONFIG_URL = "https://api.themoviedb.org/3/configuration?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
+    String backdropPath;
     String posterPath;
     String title;
     String overview;
 
     public Movie(JSONObject jsonObject) throws JSONException {
+        backdropPath = jsonObject.getString("backdrop_path");
         posterPath = jsonObject.getString("poster_path");
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
@@ -38,6 +40,10 @@ public class Movie {
 
     public String getPosterPath() {
         return String.format("https://image.tmdb.org/t/p/%s/%s", "w342", posterPath); // This currently hard-codes image size
+    }
+
+    public String getBackdropPath() {
+        return String.format("https://image.tmdb.org/t/p/%s/%s", "w342", backdropPath); // This currently hard-codes image size
     }
 
     public String getTitle() {
