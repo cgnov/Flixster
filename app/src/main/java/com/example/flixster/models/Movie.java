@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import org.parceler.Parcel;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import okhttp3.Headers;
@@ -25,6 +26,7 @@ public class Movie {
     String title;
     String overview;
     Double voteAverage;
+    String releaseDate;
 
     public Movie(){}
 
@@ -34,6 +36,7 @@ public class Movie {
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
         voteAverage = jsonObject.getDouble("vote_average");
+        releaseDate = jsonObject.getString("release_date").substring(0,4);
     }
 
     public static List<Movie> fromJSONArray(JSONArray movieJSONArray) throws JSONException {
@@ -62,5 +65,9 @@ public class Movie {
 
     public Double getVoteAverage() {
         return voteAverage;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
     }
 }

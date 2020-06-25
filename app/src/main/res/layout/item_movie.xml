@@ -6,12 +6,12 @@
 
     <ImageView
         android:id="@+id/ivPoster"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="180dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
         android:contentDescription="@string/movie_poster"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:textSize="24sp"
         tools:text="Sample Title" />
