@@ -7,24 +7,21 @@ import android.util.Log;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.flixster.databinding.ActivityMovieDetailsBinding;
 import com.example.flixster.models.Movie;
 
 import org.parceler.Parcels;
+import org.w3c.dom.Text;
 
 public class MovieDetailsActivity extends AppCompatActivity {
 
     Movie movie;
-    TextView tvTitle;
-    TextView tvOverview;
-    RatingBar rbVoteAverage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_details);
-        tvTitle = (TextView)findViewById(R.id.tvTitle);
-        tvOverview = (TextView)findViewById(R.id.tvOverview);
-        rbVoteAverage = (RatingBar)findViewById(R.id.rbVoteAverage);
+        ActivityMovieDetailsBinding binding = ActivityMovieDetailsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // Unwrap movie information from intent with movie's simple name as key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
@@ -32,12 +29,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
             Log.d("MovieDetailsActivity", String.format("Showing details for '%s'", movie.getTitle()));
 
             // Set title and overview
-            tvTitle.setText(movie.getTitle());
-            tvOverview.setText(movie.getOverview());
+            binding.tvTitle.setText(movie.getTitle());
+            binding.tvOverview.setText(movie.getOverview());
 
             // Vote average is 0-10 scale. Divide by two to get 0-5 scale with 0.5 steps
             float voteAverage = movie.getVoteAverage().floatValue();
-            rbVoteAverage.setRating(voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
+            binding.rbVoteAverage.setRating(voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
         }
     }
 }

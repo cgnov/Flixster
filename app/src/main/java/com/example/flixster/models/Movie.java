@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+import com.example.flixster.databinding.ItemMovieBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
