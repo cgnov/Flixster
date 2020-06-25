@@ -2,14 +2,14 @@
 
 **Flixster** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
-Time spent: **2.5** hours spent in total
+Time spent: **3.5** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
 * [x] User can **scroll through current movies** from the Movie Database API
-* [ ] Display a nice default [placeholder graphic](https://guides.codepath.org/android/Displaying-Images-with-the-Glide-Library#advanced-usage) for each image during loading
+* [x] Display a nice default [placeholder graphic](https://guides.codepath.org/android/Displaying-Images-with-the-Glide-Library#advanced-usage) for each image during loading
 * [x] For each movie displayed, user can see the following details:
   * [x] Title, Poster Image, Overview (Portrait mode)
   * [x] Title, Backdrop Image, Overview (Landscape mode)
@@ -37,6 +37,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+- I thought I needed to convert the placeholder gifs before putting them into the Glide .placeholder, so I tried a bunch of ways of doing that before asking my pod, who was able to help me immediately.
 
 ## Open-source libraries used
 
