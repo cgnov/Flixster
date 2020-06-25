@@ -16,7 +16,7 @@ import java.util.List;
 import okhttp3.Headers;
 
 public class Movie {
-    public static final String IMAGE_CONFIG_URL = "https://api.themoviedb.org/3/configuration?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public static final String IMAGE_CONFIG_URL = String.format("https://api.themoviedb.org/3/configuration?api_key=%s","@string/api_key");
 
     String backdropPath;
     String posterPath;
