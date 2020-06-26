@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         movies = new ArrayList<>();
-        NOW_PLAYING_URL = String.format(NOW_PLAYING_URL + "%s", getString(R.string.api_key));
 
         RecyclerView rvMovies = binding.rvMovies;
 
@@ -49,9 +48,8 @@ public class MainActivity extends AppCompatActivity {
         // Set a Layout Manager on the recycler view
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
 
-        Log.d(TAG, "onCreate: " + NOW_PLAYING_URL);
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
+        client.get(String.format(NOW_PLAYING_URL + "%s", getString(R.string.api_key)), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
                 Log.d(TAG, "onSuccess");
@@ -69,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
                 Log.e(TAG, "onFailure", throwable);
+                Log.e(TAG, "onFailure" + response);
             }
         });
 
