@@ -1,10 +1,12 @@
 package com.example.flixster.models;
 
+import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+import com.example.flixster.R;
 import com.example.flixster.databinding.ItemMovieBinding;
 
 import org.json.JSONArray;
@@ -20,7 +22,7 @@ import okhttp3.Headers;
 
 @Parcel
 public class Movie {
-    public static final String IMAGE_CONFIG_URL = String.format("https://api.themoviedb.org/3/configuration?api_key=%s","@string/api_key");
+    public static final String TAG = "Movietesting";
 
     String backdropPath;
     String posterPath;
@@ -28,6 +30,7 @@ public class Movie {
     String overview;
     Double voteAverage;
     String releaseDate;
+    Integer id;
 
     public Movie(){}
 
@@ -38,6 +41,7 @@ public class Movie {
         overview = jsonObject.getString("overview");
         voteAverage = jsonObject.getDouble("vote_average");
         releaseDate = jsonObject.getString("release_date").substring(0,4);
+        id = jsonObject.getInt("id");
     }
 
     public static List<Movie> fromJSONArray(JSONArray movieJSONArray) throws JSONException {
@@ -70,5 +74,9 @@ public class Movie {
 
     public String getReleaseDate() {
         return releaseDate;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }

@@ -25,7 +25,7 @@ import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public static String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=";
     public static final String TAG = "MainActivity";
 
     List<Movie> movies;
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         movies = new ArrayList<>();
+        NOW_PLAYING_URL = String.format(NOW_PLAYING_URL + "%s", getString(R.string.api_key));
 
         RecyclerView rvMovies = binding.rvMovies;
 
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         // Set a Layout Manager on the recycler view
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
 
+        Log.d(TAG, "onCreate: " + NOW_PLAYING_URL);
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
             @Override
