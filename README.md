@@ -38,6 +38,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 - I thought I needed to convert the placeholder gifs before putting them into the Glide .placeholder, so I tried a bunch of ways of doing that before asking my pod, who was able to help me immediately.
+- Adding genres to the movie details view was definitely the most complex thing for me in this project, particularly because I didn't want to hardcode the mapping in or request the information anew every time details were pulled up, but the HTTPRequest requires a context. I don't think my solution is totally optimal, but it works, with the only noticeable thing is that the genres might take another split second to appear.
 
 ## Open-source libraries used
 
