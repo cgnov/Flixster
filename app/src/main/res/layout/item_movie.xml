@@ -12,6 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="2dp"
         android:layout_marginTop="2dp"
+        android:background="@color/colorPrimaryDark"
         android:contentDescription="@string/movie_poster"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -24,6 +25,7 @@
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:textSize="24sp"
+        android:textColor="@color/colorPrimaryLight"
         tools:text="Sample Title" />
 
     <TextView
@@ -35,5 +37,6 @@
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:textSize="14sp"
+        android:textColor="@color/colorPrimaryLight"
         tools:text="This is just some sample text to display that describes the movie well." />
 </RelativeLayout>

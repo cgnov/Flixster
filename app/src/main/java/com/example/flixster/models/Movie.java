@@ -31,6 +31,7 @@ public class Movie {
     Double voteAverage;
     String releaseDate;
     Integer id;
+    List<Integer> genres;
 
     public Movie(){}
 
@@ -42,6 +43,11 @@ public class Movie {
         voteAverage = jsonObject.getDouble("vote_average");
         releaseDate = jsonObject.getString("release_date").substring(0,4);
         id = jsonObject.getInt("id");
+        genres = new ArrayList<>();
+        JSONArray genresJson = jsonObject.getJSONArray("genre_ids");
+        for(int i = 0; i<genresJson.length(); i++){
+            genres.add((Integer) genresJson.get(i));
+        }
     }
 
     public static List<Movie> fromJSONArray(JSONArray movieJSONArray) throws JSONException {
@@ -78,5 +84,9 @@ public class Movie {
 
     public Integer getId() {
         return id;
+    }
+
+    public List<Integer> getGenres() {
+        return genres;
     }
 }
